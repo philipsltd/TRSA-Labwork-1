@@ -12,7 +12,7 @@ class ImageBinarizationNode(Node):
         super().__init__('image_binarization_node')
         self.bridge = CvBridge()
         self.image_sub = self.create_subscription(
-            Image, '/camera/image_raw', self.image_callback, 10)
+            Image, '/camera/image_rect', self.image_callback, 10)
         self.image_pub = self.create_publisher(Image, '/camera/image_binarized', 10)
 
     def image_callback(self, msg):
